@@ -1,17 +1,16 @@
-// src/pages/Home.js
 import React from "react";
 import CoursesSection from "./CoursesSection";
-import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import EventsSection from "./EventSection";
 import NewsSection from "./NewsSection";
 import ContactSection from "./ContectSection";
-import Footer from "./FooterSection";
+import Layout from "../../Layout";
 
 const Home = () => {
   return (
     <div>
-      {/* Hero Section */}
+
+        {/* Hero Section */}
       <HeroSection />
 
       {/* Courses Section */}
