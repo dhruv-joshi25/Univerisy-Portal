@@ -4,7 +4,6 @@ import HeroSection from "./HeroSection";
 import EventsSection from "./EventSection";
 import NewsSection from "./NewsSection";
 import ContactSection from "./ContectSection";
-import Layout from "../../Layout";
 
 const Home = () => {
   return (
