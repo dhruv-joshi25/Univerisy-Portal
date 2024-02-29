@@ -12,9 +12,6 @@ const Home = () => {
         {/* Hero Section */}
       <HeroSection />
 
-      {/* Courses Section */}
-      <CoursesSection />
-
       {/* Events Section */}
       <EventsSection />
 

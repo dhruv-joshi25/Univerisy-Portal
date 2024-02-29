@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
 import { motion } from "framer-motion";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch("http://your-backend-api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        // Login successful, you can redirect or perform other actions here
+        console.log("Login successful!");
+      } else {
+        // Handle unsuccessful login
+        console.error("Login failed");
+      }
+    } catch (error) {
+      // Handle network errors or other exceptions
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
@@ -28,11 +54,15 @@ const Login = () => {
           className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded bg-white text-gray-800"
           type="text"
           placeholder="Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4 bg-white text-gray-800"
           type="password"
           placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className="mt-4 flex justify-between font-semibold text-sm">
           <label className="flex text-white hover:text-gray-200 cursor-pointer">
@@ -51,7 +81,8 @@ const Login = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="mt-4 bg-white hover:bg-gray-200 px-4 py-2 text-gray-800 uppercase rounded text-xs tracking-wider text-gray-800 font-semibold"
-            type="submit"
+            type="button"
+            onClick={handleLogin}
           >
             Login
           </motion.button>
