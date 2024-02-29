@@ -24,7 +24,7 @@ The University Portal is designed to provide a comprehensive platform for both s
 
 To set up the project locally, follow these steps:
 # Clone the repository
-git clone https://github.com/your-username/university-portal.git
+git clone https://github.com/dhruv-joshi25/university-portal.git
 
 # Navigate to the project directory
 cd university-portal
