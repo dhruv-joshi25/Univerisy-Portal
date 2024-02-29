@@ -30,8 +30,8 @@ git clone https://github.com/dhruv-joshi25/university-portal.git
 cd university-portal
 
 # Install dependencies
-npm install
-npm react-router-dom
+npm install<br/>
+npm react-router-dom<br/>
 npm react-motion
 
 Usage
