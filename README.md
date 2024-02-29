@@ -31,6 +31,8 @@ cd university-portal
 
 # Install dependencies
 npm install
+npm react-router-dom
+npm react-motion
 
 Usage
 **Start the development server:**
