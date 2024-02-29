@@ -26,14 +26,14 @@ To set up the project locally, follow these steps:
 # Clone the repository
 git clone https://github.com/dhruv-joshi25/university-portal.git
 
-# Navigate to the project directory
-cd university-portal
 
 # Install dependencies
 npm install<br/>
 npm react-router-dom<br/>
 npm react-motion
 
+# Navigate to the project directory
+cd university-portal
 Usage
 **Start the development server:**
 npm start
