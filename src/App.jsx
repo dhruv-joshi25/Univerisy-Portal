@@ -13,6 +13,7 @@ import Profile from "./Students/Profile";
 import Std_Course from "./Students/Std_Course";
 import Grades from "./Students/Grades";
 import Schedule from "./Students/Schedule";
+import Resources from "./Students/Resources";
 
 const App = () => {
   return (
@@ -59,15 +60,15 @@ const App = () => {
           }
         />
         <Route
-          path="/students/dashboards"
+          path="/students/resources"
           element={
             <StudentLayout>
-              <StudentInterface />
+              <Resources />
             </StudentLayout>
           }
         />
         <Route
-          path="/students/main"
+          path="/students/dashboards"
           element={
             <StudentLayout>
               <DashboardMainContent />

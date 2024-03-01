@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Sidebar from "./Sidebar";
 
 const Profile = () => {
@@ -13,14 +14,28 @@ const Profile = () => {
     dob: "January 1, 2000",
   };
 
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return (
-    <div className="flex h-screen bg-gray-100">
+    <motion.div
+      className="flex h-screen bg-gray-100"
+      variants={fadeInVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.5 }}
+    >
       {/* Main Content Area */}
       <div className="flex-1 p-8 ml-1/5">
         <h2 className="text-2xl font-semibold mb-4">Student Profile</h2>
 
         {/* Student Information */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-4">
+        <motion.div
+          className="bg-white p-6 rounded-lg shadow-md mb-4"
+          variants={fadeInVariants}
+        >
           <h3 className="text-lg font-semibold mb-4">Personal Information</h3>
           <p className="text-gray-600">
             <strong>Name:</strong> {studentData.name}
@@ -37,11 +52,11 @@ const Profile = () => {
             <br />
             <strong>Date of Birth:</strong> {studentData.dob}
           </p>
-        </div>
+        </motion.div>
 
         {/* Add more sections and content based on your needs */}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
