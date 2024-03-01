@@ -24,15 +24,17 @@ The University Portal is designed to provide a comprehensive platform for both s
 
 To set up the project locally, follow these steps:
 # Clone the repository
-git clone https://github.com/your-username/university-portal.git
+git clone https://github.com/dhruv-joshi25/university-portal.git
 
-# Navigate to the project directory
-cd university-portal
 
 # Install dependencies
-npm install
+npm install<br/>
+npm react-router-dom<br/>
+npm react-motion
 
-Usage
-**Start the development server:**
-npm start
+# Navigate to the project directory
+cd university-portal<br/>
+Usage<br/>
+**Start the development server:** <br/>
+npm start<br/>
 Open your browser and navigate to http://localhost:3000.
