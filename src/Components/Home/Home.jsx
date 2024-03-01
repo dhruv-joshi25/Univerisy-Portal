@@ -8,8 +8,7 @@ import ContactSection from "./ContectSection";
 const Home = () => {
   return (
     <div>
-
-        {/* Hero Section */}
+      {/* Hero Section */}
       <HeroSection />
 
       {/* Events Section */}

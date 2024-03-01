@@ -6,6 +6,7 @@ import About from "./Components/About/About";
 import CoursesSection from "./Components/CoursePage/Course";
 import Login from "./Components/LoginPage";
 import ContactPage from "./Components/Contact";
+import Dashboards from "./Students/Dashboards";
 
 const App = () => {
   return (
@@ -28,7 +29,7 @@ const App = () => {
           }
         />
         <Route
-          path="/Courses"
+          path="/courses"
           element={
             <Layout>
               <CoursesSection />
@@ -36,7 +37,7 @@ const App = () => {
           }
         />
         <Route
-          path="/Contact"
+          path="/contact"
           element={
             <Layout>
               <ContactPage />
@@ -44,13 +45,14 @@ const App = () => {
           }
         />
         <Route
-          path="/Login"
+          path="/login"
           element={
             <Layout>
               <Login />
             </Layout>
           }
         />
+        <Route path="/Students/Dashboards" element={<Dashboards />} />
       </Routes>
     </Router>
   );

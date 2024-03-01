@@ -1,32 +1,22 @@
 import React, { useState } from "react";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { BiLogoFacebook } from "react-icons/bi";
+import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
+import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
+import Dashboards from "../Students/Dashboards";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [showPassword, setShowPassword] = React.useState(false); // Added state
+  const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch("http://your-backend-api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
-        // Login successful, you can redirect or perform other actions here
-        console.log("Login successful!");
-      } else {
-        // Handle unsuccessful login
-        console.error("Login failed");
-      }
-    } catch (error) {
-      // Handle network errors or other exceptions
-      console.error("Error:", error);
+  const handleLogin = () => {
+    if (email === "student@university" && password === "student") {
+      console.log("Login successful");
+      navigate("../Students/Dashboards");
+    } else {
+      console.log("Login failed");
     }
   };
 
@@ -35,40 +25,55 @@ const Login = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0"
+      className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0 mb-10"
     >
-      <div className="md:w-1/3 max-w-sm">
+      <div className="md:w-1/3 max-w-sm mb-10">
         <img
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          alt="Sample"
+          alt="image"
         />
       </div>
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className="md:w-1/3 max-w-sm shadow-xl p-6 rounded bg-gradient-to-r from-gray-800 via-gray-800 to-gray-900 text-white"
+        className="md:w-1/3 max-w-sm shadow-xl p-12 px-5 rounded bg-gradient-to-r from-gray-800 via-gray-800 to-gray-900 text-white"
       >
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
-        <input
-          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded bg-white text-gray-800"
-          type="text"
-          placeholder="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4 bg-white text-gray-800"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <h2 className="text-2xl font-bold mb-4 ml-5">Login</h2>
+        <div className="flex items-center mb-4 ">
+          <span className="mr-2">
+            <AiOutlineUser />
+          </span>
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded bg-white text-gray-800"
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoFocus
+          />
+        </div>
+        <div className="flex items-center mb-4">
+          <span className="mr-2">
+            <AiOutlineLock />
+          </span>
+          <div className="relative w-full">
+            <input
+              className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded bg-white text-gray-800"
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <HiOutlineEyeOff /> : <HiOutlineEye />}
+            </span>
+          </div>
+        </div>
         <div className="mt-4 flex justify-between font-semibold text-sm">
-          <label className="flex text-white hover:text-gray-200 cursor-pointer">
-            <input className="mr-1" type="checkbox" />
-            <span>Remember Me</span>
-          </label>
           <a
             className="text-white hover:text-gray-200 hover:underline hover:underline-offset-4"
             href="#"
@@ -80,47 +85,12 @@ const Login = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-4 bg-white hover:bg-gray-200 px-4 py-2 text-gray-800 uppercase rounded text-xs tracking-wider text-gray-800 font-semibold"
+            className="mt-6 bg-white hover:bg-gray-200 p-3 text-gray-800 uppercase rounded text-xs tracking-wider font-semibold"
             type="button"
             onClick={handleLogin}
           >
             Login
           </motion.button>
-        </div>
-        <div className="mt-4 font-semibold text-sm text-white text-center md:text-left">
-          Don't have an account?{" "}
-          <a
-            className="text-red-300 hover:underline hover:underline-offset-4"
-            href="#"
-          >
-            Register
-          </a>
-        </div>
-
-        <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-white after:mt-0.5 after:flex-1 after:border-t after:border-white">
-          <p className="mx-4 mb-0 text-center font-semibold text-white">Or</p>
-        </div>
-        <div className="flex justify-center text-center md:text-left">
-          <label className="mr-1 text-white">Sign in with</label>
-
-          <div className="flex items-center">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              type="button"
-              className="mx-1 h-9 w-9 rounded-full bg-white hover:bg-gray-200 text-gray-800 shadow-[0_4px_9px_-4px_#3b71ca]"
-            >
-              <BiLogoFacebook size={20} className="w-full" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              type="button"
-              className="inlne-block mx-1 h-9 w-9 rounded-full bg-white hover:bg-gray-200 uppercase leading-normal text-gray-800 shadow-[0_4px_9px_-4px_#3b71ca]"
-            >
-              <AiOutlineTwitter size={20} className="w-full" />
-            </motion.button>
-          </div>
         </div>
       </motion.div>
     </motion.section>
