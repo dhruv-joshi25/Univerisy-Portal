@@ -3,7 +3,6 @@ import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import Dashboards from "../Students/Dashboards";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
@@ -14,7 +13,9 @@ const Login = () => {
   const handleLogin = () => {
     if (email === "student@university" && password === "student") {
       console.log("Login successful");
-      navigate("../Students/Dashboards");
+      setTimeout(() => {
+        navigate("../students/dashboards");
+      }, 2000);
     } else {
       console.log("Login failed");
     }

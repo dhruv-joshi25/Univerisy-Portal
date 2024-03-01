@@ -6,7 +6,13 @@ import About from "./Components/About/About";
 import CoursesSection from "./Components/CoursePage/Course";
 import Login from "./Components/LoginPage";
 import ContactPage from "./Components/Contact";
-import Dashboards from "./Students/Dashboards";
+import StudentInterface from "./Students/Dashboard";
+import StudentLayout from "./Students/StudentLayout";
+import DashboardMainContent from "./Students/MainContent";
+import Profile from "./Students/Profile";
+import Std_Course from "./Students/Std_Course";
+import Grades from "./Students/Grades";
+import Schedule from "./Students/Schedule";
 
 const App = () => {
   return (
@@ -52,7 +58,54 @@ const App = () => {
             </Layout>
           }
         />
-        <Route path="/Students/Dashboards" element={<Dashboards />} />
+        <Route
+          path="/students/dashboards"
+          element={
+            <StudentLayout>
+              <StudentInterface />
+            </StudentLayout>
+          }
+        />
+        <Route
+          path="/students/main"
+          element={
+            <StudentLayout>
+              <DashboardMainContent />
+            </StudentLayout>
+          }
+        />
+        <Route
+          path="/students/profile"
+          element={
+            <StudentLayout>
+              <Profile />
+            </StudentLayout>
+          }
+        />
+        <Route
+          path="/students/course"
+          element={
+            <StudentLayout>
+              <Std_Course />
+            </StudentLayout>
+          }
+        />
+        <Route
+          path="/students/grades"
+          element={
+            <StudentLayout>
+              <Grades />
+            </StudentLayout>
+          }
+        />
+        <Route
+          path="/students/schedule"
+          element={
+            <StudentLayout>
+              <Schedule />
+            </StudentLayout>
+          }
+        />
       </Routes>
     </Router>
   );
