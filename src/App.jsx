@@ -13,9 +13,8 @@ import Std_Course from "./Students/Std_Course";
 import Grades from "./Students/Grades";
 import Schedule from "./Students/Schedule";
 import Resources from "./Students/Resources";
-import Fact_Layout from "./Faculties/Fact_Layout";
-import FactProfile from "./Faculties/Fact_Profile";
-import UploadResources from "./Faculties/UploadResources";
+import FactLayout from "./Components/Faculty/Sidebar_Layout";
+import FacultyDashboard from "./Components/Faculty/Dashboards";
 
 const App = () => {
   return (
@@ -113,43 +112,11 @@ const App = () => {
 
         {/* Faculties Routing */}
         <Route
-          path="/Faculties/Fact_profile"
+          path="/Factulty/Dashboard"
           element={
-            <Fact_Layout>
-              <FactProfile />
-            </Fact_Layout>
-          }
-        />
-        <Route
-          path="/Faculties/UploadResources"
-          element={
-            <StudentLayout>
-              <UploadResources />
-            </StudentLayout>
-          }
-        />
-        <Route
-          path="/Faculties/dashboards"
-          element={
-            <Fact_Layout>
-              <DashboardMainContent />
-            </Fact_Layout>
-          }
-        />
-        <Route
-          path="/Faculties/Fact_course"
-          element={
-            <Fact_Layout>
-              <Std_Course />
-            </Fact_Layout>
-          }
-        />
-        <Route
-          path="/Faculties/Lecture_schedule"
-          element={
-            <Fact_Layout>
-              <Schedule />
-            </Fact_Layout>
+            <FactLayout>
+              <FacultyDashboard />
+            </FactLayout>
           }
         />
       </Routes>

@@ -10,7 +10,7 @@ const Resources = () => {
   };
 
   // State to track the selected subject
-  const [selectedSubject, setSelectedSubject] = useState(null);
+  const [selectedSubject, setSelectedSubject] = useState(0); // Set the default index to 0 for "Maths"
 
   // Dummy data for subjects
   const subjects = ["Maths", "Physics", "Science"];
@@ -20,24 +20,37 @@ const Resources = () => {
     Maths: (
       <>
         <h4>Mathematics Resources</h4>
-        <p>Content for Mathematics goes here...</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          vestibulum sapien nec ex faucibus, vel ullamcorper metus fermentum.
+          Integer vitae risus id sapien laoreet dignissim.
+        </p>
         <img
           src="https://images.pexels.com/photos/3729557/pexels-photo-3729557.jpeg?auto=compress&cs=tinysrgb&w=600"
           alt="Maths"
+          className="mt-4 rounded-md"
         />
       </>
     ),
     Physics: (
       <>
         <h4>Physics Resources</h4>
-        <p>Content for Physics goes here...</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          vestibulum sapien nec ex faucibus, vel ullamcorper metus fermentum.
+          Integer vitae risus id sapien laoreet dignissim.
+        </p>
         {/* Add more content specific to Physics */}
       </>
     ),
     Science: (
       <>
         <h4>Science Resources</h4>
-        <p>Content for Science goes here...</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          vestibulum sapien nec ex faucibus, vel ullamcorper metus fermentum.
+          Integer vitae risus id sapien laoreet dignissim.
+        </p>
         {/* Add more content specific to Science */}
       </>
     ),
@@ -52,7 +65,7 @@ const Resources = () => {
       transition={{ duration: 0.5 }}
     >
       {/* Main Content Area */}
-      <div className="flex-1 p-8 ml-1/5 overflow-y-auto     ">
+      <div className="flex-1 p-8 ml-1/5 overflow-y-auto">
         <h2 className="text-2xl font-semibold mb-4">Resources</h2>
 
         {/* Navigation for Subjects */}
@@ -75,17 +88,15 @@ const Resources = () => {
         </div>
 
         {/* Display Resources based on the selected subject */}
-        {selectedSubject !== null && (
-          <motion.div
-            className="bg-white p-6 rounded-lg shadow-md mb-4 flex-1"
-            variants={fadeInVariants}
-          >
-            <h3 className="text-lg font-semibold mb-4">
-              Resources for {subjects[selectedSubject]}
-            </h3>
-            {subjectContent[subjects[selectedSubject]]}
-          </motion.div>
-        )}
+        <motion.div
+          className="bg-white p-6 rounded-lg shadow-md mb-4 flex-1"
+          variants={fadeInVariants}
+        >
+          <h3 className="text-lg font-semibold mb-4">
+            Resources for {subjects[selectedSubject]}
+          </h3>
+          {subjectContent[subjects[selectedSubject]]}
+        </motion.div>
 
         {/* Add more sections and content based on your needs */}
       </div>

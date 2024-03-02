@@ -14,18 +14,17 @@ const Login = () => {
     if (email === "student@university" && password === "student") {
       console.log("Student login successful");
       setTimeout(() => {
-        navigate("../students/dashboards");
+        navigate("../students/profile");
       }, 2000);
     } else if (email === "faculties@university" && password === "faculties") {
       console.log("Faculty login successful");
       setTimeout(() => {
-        navigate("../Faculties/dashboards");
+        navigate("../Facualty/Dashboard");
       }, 2000);
     } else {
       console.log("Login failed");
     }
   };
-  
 
   return (
     <motion.section

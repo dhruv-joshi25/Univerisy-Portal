@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Sidebar from "./Sidebar";
 
 const Schedule = () => {
   // Dummy data for the schedule
@@ -18,41 +19,44 @@ const Schedule = () => {
 
   return (
     <motion.div
-      className="bg-gray-100 border-2 border-green-500 rounded-lg shadow-md p-6 m-6"
+      className="flex h-screen bg-gray-100 w-full"
       variants={fadeInVariants}
       initial="hidden"
       animate="visible"
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-green-500">Schedule</h2>
-      <table className="w-full mt-4">
-        <thead>
-          <tr>
-            <th className="py-2 px-4 border-b border-gray-300">Time</th>
-            <th className="py-2 px-4 border-b border-gray-300">Subject</th>
-            <th className="py-2 px-4 border-b border-gray-300">Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          {scheduleData.map((item, index) => (
-            <motion.tr
-              key={index}
-              variants={fadeInVariants}
-              className="hover:bg-gray-200 transition duration-300"
-            >
-              <td className="py-2 px-4 border-b border-gray-300">
-                {item.time}
-              </td>
-              <td className="py-2 px-4 border-b border-gray-300">
-                {item.subject}
-              </td>
-              <td className="py-2 px-4 border-b border-gray-300">
-                {item.location}
-              </td>
-            </motion.tr>
-          ))}
-        </tbody>
-      </table>
+      {/* Main Content Area */}
+      <div className="flex-1 p-8 overflow-y-auto">
+        <h2 className="text-2xl font-semibold mb-4 text-green-500">Schedule</h2>
+        <table className="w-full">
+          <thead>
+            <tr>
+              <th className="py-2 px-4 border-b border-gray-300">Time</th>
+              <th className="py-2 px-4 border-b border-gray-300">Subject</th>
+              <th className="py-2 px-4 border-b border-gray-300">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {scheduleData.map((item, index) => (
+              <motion.tr
+                key={index}
+                variants={fadeInVariants}
+                className="hover:bg-gray-200 transition duration-300"
+              >
+                <td className="py-2 px-4 border-b border-gray-300">
+                  {item.time}
+                </td>
+                <td className="py-2 px-4 border-b border-gray-300">
+                  {item.subject}
+                </td>
+                <td className="py-2 px-4 border-b border-gray-300">
+                  {item.location}
+                </td>
+              </motion.tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </motion.div>
   );
 };

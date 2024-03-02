@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Sidebar = ({ children }) => {
   return (
-    <div className="flex">
-      <div className="bg-gray-800 text-white h-screen w-1/5 fixed-1">
+    <div className="flex h-screen">
+      <div className="bg-gray-800 text-white w-1/5 fixed-1 top-0 h-full overflow-y-auto">
         <div className="p-4">
           <h1 className="text-2xl font-semibold">Student Dashboard</h1>
         </div>
@@ -40,9 +40,8 @@ const Sidebar = ({ children }) => {
             </Link>
           </li>
         </ul>
-        {/* Render children here */}
       </div>
-      <div className="m-7 flex h-screen">{children}</div>
+      <div className="m-7 flex-1">{children}</div>
     </div>
   );
 };
