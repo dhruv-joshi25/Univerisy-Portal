@@ -10,6 +10,16 @@ const UploadResources = () => {
   };
 
   const handleResourceTypeChange = (e) => {
+     // Make the Axios POST request
+     axios.post("http://127.0.0.1:8000/crwoling/", e.target.value)
+     .then(response => {
+       console.log("Resource uploaded successfully:", response.data);
+       // Reset the form after uploading
+       setResourceName("");
+      })
+     .catch(error => {
+       console.error("Error uploading resource:", error);
+     });
     setResourceType(e.target.value);
   };
 

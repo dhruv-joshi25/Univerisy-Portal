@@ -11,15 +11,15 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (email === "student@university" && password === "student") {
+    if (email === "student" && password === "student") {
       console.log("Student login successful");
       setTimeout(() => {
         navigate("../students/profile");
       }, 2000);
-    } else if (email === "faculties@university" && password === "faculties") {
+    } else if (email === "faculty" && password === "faculty") {
       console.log("Faculty login successful");
       setTimeout(() => {
-        navigate("../Facualty/Dashboard");
+        navigate("../Facualty/FactProfile");
       }, 2000);
     } else {
       console.log("Login failed");

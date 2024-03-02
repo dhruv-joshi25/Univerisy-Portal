@@ -6,15 +6,9 @@ import About from "./Components/About/About";
 import CoursesSection from "./Components/CoursePage/Course";
 import Login from "./Components/LoginPage";
 import ContactPage from "./Components/Contact";
-import StudentLayout from "./Students/StudentLayout";
-import DashboardMainContent from "./Students/MainContent";
-import Profile from "./Students/Profile";
-import Std_Course from "./Students/Std_Course";
-import Grades from "./Students/Grades";
-import Schedule from "./Students/Schedule";
-import Resources from "./Students/Resources";
-import FactLayout from "./Components/Faculty/Sidebar_Layout";
-import FacultyDashboard from "./Components/Faculty/Dashboards";
+import StudentRoutes from "./StudentRoutes"; // Correct the import path
+import FacultyRoutes from "./FacultyRoutes";
+import NoMatch from "./Faculty/NoMatch";
 
 const App = () => {
   return (
@@ -60,65 +54,11 @@ const App = () => {
             </Layout>
           }
         />
-        {/* Students Routing */}
-        <Route
-          path="/students/resources"
-          element={
-            <StudentLayout>
-              <Resources />
-            </StudentLayout>
-          }
-        />
-        <Route
-          path="/students/dashboards"
-          element={
-            <StudentLayout>
-              <DashboardMainContent />
-            </StudentLayout>
-          }
-        />
-        <Route
-          path="/students/profile"
-          element={
-            <StudentLayout>
-              <Profile />
-            </StudentLayout>
-          }
-        />
-        <Route
-          path="/students/course"
-          element={
-            <StudentLayout>
-              <Std_Course />
-            </StudentLayout>
-          }
-        />
-        <Route
-          path="/students/grades"
-          element={
-            <StudentLayout>
-              <Grades />
-            </StudentLayout>
-          }
-        />
-        <Route
-          path="/students/schedule"
-          element={
-            <StudentLayout>
-              <Schedule />
-            </StudentLayout>
-          }
-        />
 
-        {/* Faculties Routing */}
-        <Route
-          path="/Factulty/Dashboard"
-          element={
-            <FactLayout>
-              <FacultyDashboard />
-            </FactLayout>
-          }
-        />
+        {/* Include StudentRoutes here */}
+        <Route path="/students/*" element={<StudentRoutes />} />
+        <Route path="/faculty/*" element={<FacultyRoutes />} />
+        {/* <Route path="*" element={<NoMatch />} /> */}
       </Routes>
     </Router>
   );
