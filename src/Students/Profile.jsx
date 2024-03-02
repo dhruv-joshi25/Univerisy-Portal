@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Sidebar from "./Sidebar";
 
 const Profile = () => {
   // Dummy data for the student profile
