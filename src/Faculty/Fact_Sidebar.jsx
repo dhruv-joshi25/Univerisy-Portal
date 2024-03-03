@@ -16,15 +16,15 @@ const FactSidebar = ({ children }) => {
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="/faculty/Uploadresources" className="text-lg font-semibold">
+            <Link
+              to="/faculty/Uploadresources"
+              className="text-lg font-semibold"
+            >
               Upload Resources
             </Link>
           </li>
           <li className="mb-4">
-            <Link
-              to="/faculty/schedule"
-              className="text-lg font-semibold"
-            >
+            <Link to="/faculty/schedule" className="text-lg font-semibold">
               Schedule
             </Link>
           </li>

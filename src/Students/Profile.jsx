@@ -80,6 +80,19 @@ const Profile = () => {
               ))}
             </ul>
           </motion.div>
+          <motion.div
+            className="bg-white p-6 rounded-lg shadow-md mb-4"
+            variants={fadeInVariants}
+          >
+            <h3 className="text-lg font-semibold mb-4">
+              Extracurricular Activities
+            </h3>
+            <ul className="list-disc ml-6">
+              {studentData.extracurriculars.map((activity, index) => (
+                <li key={index}>{activity}</li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
 
         {/* Column 2 */}
@@ -111,34 +124,6 @@ const Profile = () => {
           </motion.div>
 
           {/* Extracurricular Activities Section */}
-          <motion.div
-            className="bg-white p-6 rounded-lg shadow-md mb-4"
-            variants={fadeInVariants}
-          >
-            <h3 className="text-lg font-semibold mb-4">
-              Extracurricular Activities
-            </h3>
-            <ul className="list-disc ml-6">
-              {studentData.extracurriculars.map((activity, index) => (
-                <li key={index}>{activity}</li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Additional Contact Section */}
-          <motion.div
-            className="bg-white p-6 rounded-lg shadow-md mb-4"
-            variants={fadeInVariants}
-          >
-            <h3 className="text-lg font-semibold mb-4">Additional Contact</h3>
-            <p className="text-gray-600">
-              <strong>Emergency Contact:</strong>{" "}
-              {studentData.additionalContact.emergencyContact}
-              <br />
-              <strong>Contact Number:</strong>{" "}
-              {studentData.additionalContact.emergencyContactNumber}
-            </p>
-          </motion.div>
         </div>
       </div>
     </motion.div>

@@ -19,7 +19,7 @@ const Login = () => {
     } else if (email === "faculty" && password === "faculty") {
       console.log("Faculty login successful");
       setTimeout(() => {
-        navigate("../Facualty/FactProfile");
+        navigate("../faculty/profile");
       }, 2000);
     } else {
       console.log("Login failed");
